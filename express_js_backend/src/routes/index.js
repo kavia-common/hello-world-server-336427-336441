@@ -2,33 +2,21 @@ const express = require('express');
 const healthController = require('../controllers/health');
 
 const router = express.Router();
-// Health endpoint
 
 /**
  * @swagger
  * /:
  *   get:
- *     summary: Health endpoint
+ *     summary: Hello World endpoint
+ *     description: Returns a plain text "Hello World" response.
  *     responses:
  *       200:
- *         description: Service health check passed
+ *         description: Plain text Hello World response
  *         content:
- *           application/json:
+ *           text/plain:
  *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: string
- *                   example: ok
- *                 message:
- *                   type: string
- *                   example: Service is healthy
- *                 timestamp:
- *                   type: string
- *                   format: date-time
- *                 environment:
- *                   type: string
- *                   example: development
+ *               type: string
+ *               example: Hello World
  */
 router.get('/', healthController.check.bind(healthController));
 
